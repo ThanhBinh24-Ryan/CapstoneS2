@@ -5,7 +5,7 @@ class phoneS {
         this.price = _price;
         this.screen = _screen;
         this.backCamera = _backCamera;
-        this.fontCamera = _fontCamera;
+        this.frontCamera = _fontCamera;
         this.img = _img;
         this.desc = _desc;
         this.type = _type;

@@ -6,12 +6,162 @@
     border-collapse: collapse;
 
 }
-th{
+th, td{
     border: 1px solid #0c0b0b; /* Đường kẻ dưới cho các thẻ <th> */
     
+}
+th, td {
+    padding: 10px;
+    text-align: center;
 }
 .carousel{
     padding-top: 2%;
 }
+.delete{
+    background-color: red;
+    padding: 8px;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: aliceblue;
+    
+}
+.delete:hover{
+    box-shadow: 1px 1px 20px brown;
+    pointer-events: all;
+}
+.btn_edit{
+    background-color: blue;
+    padding: 8px;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: aliceblue;
+}
+.btn_edit:hover{
+    box-shadow: 1px 1px 20px rgb(62, 35, 212);
+    pointer-events: all;
+}
+/* Định dạng chung cho phần container */
+.add_product {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Flexbox để căn giữa các phần tử */
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* Thiết kế cho input tìm kiếm */
+  .find_product {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+    max-width: 100%;
+  }
+  
+  .find_product:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* Thiết kế cho phần sắp xếp */
+  .sapXep label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .sapXep select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+  }
+.add_btn{
+    background-color: rgb(134, 237, 134);
+    padding: 5px 20px 5px 20px;
+    border-radius: 30px;
+}
+.btn_add:hover{
+    box-shadow: 1px 1px 20px greenyellow;
+    pointer-events: all;
 
+}
 
+.product_form {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e2d3d3;
+    border-radius: 8px;
+    box-shadow: 20px 20px grey;
+  }
+  
+  .product_form h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal-footer .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
