@@ -3,6 +3,7 @@ import Api from "../javascript/Api.js";
 const api = new Api();
 let listdata = [];
 let cart = []; // Biến toàn cục để lưu trữ giỏ hàng
+let total = 0
 
 // Hàm hiển thị sản phẩm
 let renderProduct = (listProduct) => {
@@ -68,6 +69,7 @@ const addProduct = () => {
     .catch((error) => {
         console.log("error", error);
     });
+    addLocalStorage()
 };
 window.addProduct = addProduct;
 
@@ -97,9 +99,11 @@ const addToCart = (id, name, price, img) => {
     if (existingItem) {
         existingItem.quantity += 1; // Tăng số lượng nếu sản phẩm đã có
     } else {
-        cart.push({ id, name, price, img, quantity: 1 }); // Thêm sản phẩm vào giỏ hàng
+        cart.push({ id, name, price, img, quantity: 1, total_item : price }); // Thêm sản phẩm vào giỏ hàng
     }
     renderCart(); // Cập nhật giỏ hàng
+    totalCart(); //Cập nhập giá tiền tổng
+    addLocalStorage()
 };
 
 // Hàm render giỏ hàng
@@ -115,11 +119,12 @@ const renderCart = () => {
                     <td>${item.name}</td>
                     <td>${item.price}</td>
                     <td><img width="100px" src="${item.img}" alt=""></td>
-                     <td>
+                    <td>
                         <button onclick="changeQuantity('${item.id}', -1)">[-]</button>
                         ${item.quantity}
                         <button onclick="changeQuantity('${item.id}', 1)">[+]</button>
                     </td>
+                    <td>${item.total_item}</td>
                      <td>
                         <button onclick="removeFromCart('${item.id}')">Xóa</button>
                     </td>
@@ -138,10 +143,26 @@ const changeQuantity = (id, delta) => {
       if (item.quantity <= 0) {
           removeFromCart(id); // Nếu số lượng <= 0, xóa sản phẩm khỏi giỏ hàng
       } else {
+          item.total_item = item.price * item.quantity //Tính tiền từng sản phẩm
           renderCart(); // Cập nhật giỏ hàng
       }
   }
+  totalCart();
+  addLocalStorage()
 };
+// Tính tổng sản phẩm
+const totalCart = () => {
+    let totalCal = 0;
+    console.log(cart);
+    for (let i = 0; i < cart.length; i++) {
+      totalCal += cart[i].total_item
+      console.log(cart[i].total_item);
+    }
+    total = totalCal;
+    document.getElementById("totalCart").innerHTML = ` ${total.toLocaleString()} VND`;
+    renderCart()
+}
+
 // Hàm mở giỏ hàng
 const openCart = () => {
     document.getElementById("cartModal").style.display = "block"; // Hiện giỏ hàng
@@ -157,6 +178,7 @@ const closeCart = () => {
 const removeFromCart = (id) => {
   cart = cart.filter(item => item.id !== id); // Lọc để xóa sản phẩm
   renderCart(); // Cập nhật giỏ hàng
+  addLocalStorage()
 };
 window.removeFromCart = removeFromCart;
 // Expose the function to the global scope
@@ -165,3 +187,27 @@ window.closeCart = closeCart;
 // Expose the function to the global scope
 window.openCart = openCart;
 window.changeQuantity = changeQuantity;
+
+const addLocalStorage = () => {
+    const setLocalStorage = JSON.stringify(cart)
+    localStorage.setItem("cart", setLocalStorage)
+}
+
+const getLocalStorage = () => {
+    const getLocStog = localStorage.getItem("cart")
+    if (getLocStog) {
+        cart = JSON.parse(getLocStog)
+        renderCart()
+    }
+}
+getLocalStorage()
+
+const btnCheckout = () => {
+    alert("Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi");
+    cart = [];
+    total = 0; 
+    document.getElementById("totalCart").innerHTML = "Tổng tiền: 0 VND"; 
+    renderCart(); 
+    addLocalStorage(); 
+};
+window.btnCheckout = btnCheckout
