@@ -18,7 +18,7 @@
           >
             <img
               src="https://flowbite.com/docs/images/logo.svg"
-              class="h-8 "
+              class="h-8"
               alt="Flowbite Logo"
             />
             <span
@@ -136,12 +136,12 @@
               />
             </div>
             <ul
-              class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+              class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
             >
               <li>
                 <a
                   href="#"
-                  class="block py-2 px-3 text-white  rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                  class="block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                   aria-current="page"
                   >Home</a
                 >
@@ -167,88 +167,151 @@
     </header>
 
     <div id="content">
-			<div class="container">
-				<div class="card text-center">
-					<!-- Header -->
-					<div class="card-header myCardHeader m-6 ">
-						<div class="row">
-							<div class="col-md-6 ">
-								<h3 class="text-left text-3xl text-primary font-weight-bold block">Danh sách điện thoại</h3>
-							</div>
-						</div>
-					</div>
+      <div class="container">
+        <div class="card text-center">
+          <!-- Header -->
+          <div class="card-header myCardHeader m-6">
+            <div class="row">
+              <div class="col-md-6">
+                <h3
+                  class="text-left text-3xl text-primary font-weight-bold block"
+                >
+                  Danh sách điện thoại
+                </h3>
+              </div>
+            </div>
+          </div>
 
-					<!-- Body -->
-					<div class="card-body">
-						<div class="row">
-							<div class="col">
-								<div class="input-group columns-2 p-5  bg-blue-300">
-									<input type="text" class="form-control" placeholder="Tìm loại điện thoại" id="searchName">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="btnTimDT"><i class="fa fa-search"></i></span>
-									</div>
-                  <div class="form-group p-2">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
-                      </div>
+          <!-- Body -->
+
+          <!-- Footer -->
+          <div class="card-footer myCardFooter">
+            <nav>
+              <ul
+                class="pagination justify-content-center"
+                id="ulPhanTrang"
+              ></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="width: full">
+      <div class="row">
+        <div class="col">
+                  <div
+                    class="input-group columns-2 p-5 bg-blue-300 flex"
+                    style="width: 100%"
+                  >
+                    <div class="mt-2 mr-4">
+                      <label class="">Tìm điện thoại theo loại: </label>
                     </div>
-      
-                    <span class="sp-thongbao" id="tbChucVu"></span>
+                    <div>
+                      <select
+                        class="form-control"
+                        id="productType"
+                        aria-label="Chọn loại điện thoại"
+                        style="width: 100%"
+                      >
+                        <option value="">Tất cả</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="iphone">iPhone</option>
+                      </select>
+                    </div>
+                    <div style="padding-left:65%">
+                      <button class="btn_GioHang p-3 pl-5 pr-5" style="background-color: rgb(154, 94, 108); border-radius:50px; "onclick="openCart()">Giỏ Hàng</button>
+                    </div>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="btnTimDT"
+                ><i class="fa fa-search"></i
+              ></span>
+            </div>
+          </div>
+          <!-- <div class="form-group p-2" style="width: 100%;">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                      </div>
                   </div>
-								</div>
-							</div>
-						</div>
-						<table class="table table-bordered table-hover myTable ">
-							<thead class="text-primary bg-blue-500">
-								<tr>
-									<th>STT</th>
-									<th>Tên sản phẩm</th>
-									<th>Price</th>
-									<th>Screen</th>
-									<th>Black Camera</th>
-									<th>Front Camera</th>									
-									<th>Image</th>
-									<th>Desc</th>
-                  <th>Type</th>
-								</tr>
-							</thead>
-							<tbody id="tableDanhSach">
+                  <span class="sp-thongbao" id="tbChucVu"></span>
+              </div> -->
+        </div>
+      </div>
+    </div>
+    <section class="carousel">
+      <table
+        class="table table-bordered table-hover myTable"
+        style="width: 100%"
+      >
+        <thead class="text-primary bg-blue-500">
+          <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Price</th>
+            <th>Screen</th>
+            <th>Black Camera</th>
+            <th>Front Camera</th>
+            <th>Image</th>
+            <th>Desc</th>
+            <th>Type</th>
+            <th>Active</th>
+          </tr>
+        </thead>
+        <tbody id="tableDanhSach">
+          <!-- Dữ liệu bảng sẽ được chèn vào đây -->
+        </tbody>
+      </table>
+    </section>
 
-							</tbody>
-						</table>
-					</div>
+  <!-- Modal Giỏ hàng -->
+<div id="cartModal" class="modal" style="display: none;">
+  <div class="modal-content">
+      <h3>Giỏ hàng</h3>
+      <table class="table table-bordered table-hover myTable" style="width: 100%;">
+          <thead class="text-primary bg-blue-500">
+              <tr>
+                  <th>STT</th>
+                  <th>Tên sản phẩm</th>
+                  <th>Price</th>
+                  <th>Image</th>
+                  <th>Quantity</th>
+                  <th>Active</th>
+              </tr>
+          </thead>
+          <tbody id="cartTable"></tbody>
+      </table>
+      <div class="card-footer myCardFooter pt-3">
+          <button id="btnCheckout" class="btn bg-orange-400 p-2" style="border-radius: 50px">
+              Thanh toán
+          </button>
+          <br>
+          <div class="btnDouble pt-3">
+        
 
-					<!-- Footer -->
-					<div class="card-footer myCardFooter">
-						<nav>
-							<ul class="pagination justify-content-center" id="ulPhanTrang">
+          <button class="btn bg-zinc-700 pr-5 pl-5  pb-2" style="border-radius: 50px" onclick="closeCart()">Đóng</button>
+        </div>
+      </div>
+  </div>
+</div>
 
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-
-		</div>
 
     <!-- Modal -->
-    <div class="modal fade m-6 " id="myModal">
+    <!-- <div class="modal fade m-6 " id="myModal">
       <div class="modal-dialog bg-red-300 rounded-lg p-8">
-        <div class="modal-content">
-  
-          <header class="head-form mb-0">
-            <!-- <h2 id="header-title">Thêm Điện Thoại</h2> -->
-          </header>
-  
-          <!-- Modal Header -->
-          <!-- 	<div class="modal-header">
+        <div class="modal-content"> -->
+
+    <!-- <header class="head-form mb-0"> -->
+    <!-- <h2 id="header-title">Thêm Điện Thoại</h2> -->
+    <!-- </header> -->
+
+    <!-- Modal Header -->
+    <!-- 	<div class="modal-header">
             <h4 class="modal-title" id="modal-title">Modal Heading</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div> -->
-  
-          <!-- Modal body -->
-          <div class="modal-body">
+
+    <!-- Modal body -->
+    <!-- <div class="modal-body">
   
             <form role="form" id="staffFrom">
   
@@ -307,23 +370,23 @@
           </div>
   
           <!-- Modal footer -->
-          <div class="modal-footer" id="modal-footer">
+    <!-- <div class="modal-footer" id="modal-footer">
             <button id="btnThemDT" type="button" onclick="addProduct()" class="btn btn-success bg-sky-500 font-medium text-white">Thêm điện thoại</button>
-          </div>
-  
+          </div>  -->
+    <!--   
         </div>
       </div>
-    </div>  
+    </div>   -->
 
     <!-- AXIOS -->
     <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
-    integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  
-  <!-- MY JS -->
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MY JS -->
     <script type="module" src="../src/homeJS/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </body>

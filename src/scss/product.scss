@@ -1,0 +1,23 @@
+.modal {
+    display: none; /* Ẩn modal mặc định */
+    position: fixed; /* Đặt modal ở vị trí cố định */
+    z-index: 1000; /* Đặt z-index để đảm bảo modal ở trên */
+    left: 0;
+    top: 0;
+    width: 100%; /* Toàn bộ chiều rộng */
+    height: 100%; /* Toàn bộ chiều cao */
+    overflow: auto; /* Kéo lên/xuống */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
+}
+
+.modal-content {
+    background-color: white; /* Nền của nội dung modal */
+    margin: 15% auto; /* Căn giữa */
+    padding: 20px; /* Padding cho nội dung */
+    border: 1px solid #888; /* Đường viền */
+    width: 50%; /* Chiều rộng của modal */
+    border-radius: 10px; /* Bo góc */
+}
+.btnDouble{
+    justify-content: end;
+}
