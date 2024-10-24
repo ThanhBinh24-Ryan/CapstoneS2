@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+   
   </head>
   <body>
     <header class="">
@@ -74,9 +75,11 @@
               </div>
               <input
                 type="text"
-                id="search-navbar"
+                id="search-navbars"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Tìm kiếm sản phẩm"
+                 aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
               />
             </div>
             <button
@@ -167,12 +170,13 @@
     </header>
     <section class="add_product">
       <div class="flex justify-between">
-        <div class="btn_add">
-          <button class="add_btn">Thêm sản phẩm +</button>
+        <div class="btn_add w-96">
+          <button class="add_btn" data-modal-target="modal"
+          data-target="#myModal">Thêm sản phẩm +</button>
         </div>
 
-        <div>
-          <section class="sapXep">
+        <div class="xx ml-96">
+          <section class="sapXep justify-between">
             <label for="sortOptions">Sắp xếp theo giá tiền:</label>
             <select id="sortOptions" name="sortOptions">
               <option value="">Tất cả</option>
@@ -201,49 +205,80 @@
         <tbody id="tblDanhSachSP"></tbody>
       </table>
     </section>
-    <form class="product_form container">
-      <h3>Add Product</h3>
-    <div class="modal-body">
-      <div class="form-group">
-        <label>Tên Sản Phẩm</label>
-        <input
-          id="TenSP"
-          class="form-control"
-          placeholder="Nhập vào tên sản phẩm"
-        />
-      </div>
-      <div class="form-group">
-        <label>Giá</label>
-        <input
-          id="GiaSP"
-          class="form-control"
-          placeholder="Nhập vào giá"
-        />
-      </div>
-      <div class="form-group">
-        <label>Hình Ảnh</label>
-        <input
-          id="HinhSP"
-          class="form-control"
-          placeholder="Nhập vào hình sản phẩm"
-        />
-      </div>
-      <div class="form-group">
-        <label for="">Mô tả: </label>
-        <textarea class="form-control" id="MoTa"></textarea>
-      </div>
-    </div>
- 
-    
+
+
+
+    <div class="product_form container"id="resetForm">
+      <h3 class="modal-title">Add Product</h3>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="TenSP">Tên Sản Phẩm</label>
+          <input id="TenSP" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+          <div id="errorTenSP" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="GiaSP">Price</label>
+          <input id="GiaSP" class="form-control" placeholder="Nhập vào giá" />
+          <div id="errorGiaSP" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="Screen">Screen</label>
+          <input id="Screen" class="form-control" placeholder="Nhập vào Screen" />
+          <div id="errorScreen" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="backCamera">Back Camera</label>
+          <input id="backCamera" class="form-control" placeholder="Nhập vào Back Camera" />
+          <div id="errorBackCamera" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="frontCamera">Front Camera</label>
+          <input id="frontCamera" class="form-control" placeholder="Nhập vào Front Camera" />
+          <div id="errorFrontCamera" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="loai">Img</label>
+          <select class="custom-select" id="loai">
+            <option value="">Chọn img</option>
+            <option value="https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg">Iphone</option>
+            <option value="https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg">Samsung</option>
+          </select>
+          <div id="errorLoai" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="MoTa">Desc</label>
+          <textarea class="form-control" id="MoTa"></textarea>
+          <div id="errorMoTa" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
+        <div class="form-group">
+          <label for="Type">Type</label>
+          <select class="custom-select" id="Type">
+            <option value="">Chọn loại</option>
+            <option value="Iphone">Iphone</option>
+            <option value="Samsung">Samsung</option>
+          </select>
+          <div id="errorType" class="error-message"></div> <!-- Thêm div hiển thị lỗi -->
+        </div>
+        
       <div class="modal-footer justify-end">
-      <button class="btn_Them">Thêm mới</button>
-      <button class="btn_CapNhat ml-6 mr-6">Cập nhật</button>
-      <button class="btn_Dong">Close</button>
+        <button type="button" class="btn_Them border-t-cyan-300" onclick="addProduct()">Thêm mới</button>
+        <button type="button" class="btn_CapNhat ml-6 mr-6 border-t-indigo-500" onclick="updateProduct()">Cập nhật</button>
+
+        <button type="button" class="btn_Dong border-t-neutral-700" id="closeModalBtn">
+          Close
+      </button>
+      </div>
     </div>
-    </div>
-  </div>
-  </div>
-  </form>
+    
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 
     <script
@@ -252,6 +287,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="./javascript/form.js"></script>
     <script type="module" src="./javascript/Admin.js"></script>
   </body>
 </html>
