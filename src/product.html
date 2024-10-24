@@ -199,28 +199,34 @@
     <div class="card-body" style="width: full">
       <div class="row">
         <div class="col">
-                  <div
-                    class="input-group columns-2 p-5 bg-blue-300 flex"
-                    style="width: 100%"
-                  >
-                    <div class="mt-2 mr-4">
-                      <label class="">Tìm điện thoại theo loại: </label>
-                    </div>
-                    <div>
-                      <select
-                        class="form-control"
-                        id="productType"
-                        aria-label="Chọn loại điện thoại"
-                        style="width: 100%"
-                      >
-                        <option value="">Tất cả</option>
-                        <option value="samsung">Samsung</option>
-                        <option value="iphone">iPhone</option>
-                      </select>
-                    </div>
-                    <div style="padding-left:65%">
-                      <button class="btn_GioHang p-3 pl-5 pr-5" style="background-color: rgb(154, 94, 108); border-radius:50px; "onclick="openCart()">Giỏ Hàng</button>
-                    </div>
+          <div
+            class="input-group columns-2 p-5 bg-blue-300 flex"
+            style="width: 100%"
+          >
+            <div class="mt-2 mr-4">
+              <label class="">Tìm điện thoại theo loại: </label>
+            </div>
+            <div>
+              <select
+                class="form-control"
+                id="productType"
+                aria-label="Chọn loại điện thoại"
+                style="width: 100%"
+              >
+                <option value="">Tất cả</option>
+                <option value="samsung">Samsung</option>
+                <option value="iphone">iPhone</option>
+              </select>
+            </div>
+            <div style="padding-left: 65%">
+              <button
+                class="btn_GioHang p-3 pl-5 pr-5"
+                style="background-color: rgb(154, 94, 108); border-radius: 50px"
+                onclick="openCart()"
+              >
+                Giỏ Hàng
+              </button>
+            </div>
             <div class="input-group-prepend">
               <span class="input-group-text" id="btnTimDT"
                 ><i class="fa fa-search"></i
@@ -263,37 +269,53 @@
       </table>
     </section>
 
-  <!-- Modal Giỏ hàng -->
-<div id="cartModal" class="modal" style="display: none;">
-  <div class="modal-content">
-      <h3>Giỏ hàng</h3>
-      <table class="table table-bordered table-hover myTable" style="width: 100%;">
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Giỏ hàng</h3>
+        <table
+          class="table table-bordered table-hover myTable"
+          style="width: 100%"
+        >
           <thead class="text-primary bg-blue-500">
-              <tr>
-                  <th>STT</th>
-                  <th>Tên sản phẩm</th>
-                  <th>Price</th>
-                  <th>Image</th>
-                  <th>Quantity</th>
-                  <th>Active</th>
-              </tr>
+            <tr>
+              <th>STT</th>
+              <th>Tên sản phẩm</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Active</th>
+            </tr>
           </thead>
           <tbody id="cartTable"></tbody>
-      </table>
-      <div class="card-footer myCardFooter pt-3">
-          <button id="btnCheckout" class="btn bg-orange-400 p-2" style="border-radius: 50px">
-              Thanh toán
+        </table>
+        <div  class="card-footer myCardFooter pt-3">
+          <div class="bg-pink-400 flex h-10 w-52 rounded-2xl justify-items-center pt-2 mb-3 pl-3">
+            <h3>Tổng tiền: </h3>
+            <h3 id="totalCart"></h3>
+          </div>
+          <button
+            id="btnSell"
+            class="btn bg-orange-400 p-2"
+            style="border-radius: 50px"
+            onclick="btnCheckout()"
+          >
+            Thanh toán
           </button>
-          <br>
+          <br />
           <div class="btnDouble pt-3">
-        
-
-          <button class="btn bg-zinc-700 pr-5 pl-5  pb-2" style="border-radius: 50px" onclick="closeCart()">Đóng</button>
+            <button
+              class="btn bg-zinc-700 pr-5 pl-5 pb-2"
+              style="border-radius: 50px"
+              onclick="closeCart()"
+            >
+              Đóng
+            </button>
+          </div>
         </div>
       </div>
-  </div>
-</div>
-
+    </div>
 
     <!-- Modal -->
     <!-- <div class="modal fade m-6 " id="myModal">
