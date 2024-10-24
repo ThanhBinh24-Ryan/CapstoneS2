@@ -4,23 +4,6 @@ import Api from "../javascript/Api.js";
 const api = new Api();
 let listdata = [];
 
-const deleteProduct = (id) => {
-    console.log("id", id)
-    axios({
-        url: `https://670fd53ea85f4164ef2c1d34.mockapi.io/capstone2/${id}`,
-        method: "DELETE",
-      })
-    .then((res) => {
-        console.log("res", res)
-        showProduct()
-      })
-      .catch((err) => {
-        console.log("error", err)
-      });
-}
-
-window.deleteProduct = deleteProduct;
-
 let renderProduct = (listProduct) => {
   let content = "";
   listProduct.forEach((product, index) => {
@@ -35,9 +18,8 @@ let renderProduct = (listProduct) => {
                 <td><img width="100px" src="${product.img}" alt=""></td>
                 <td>${product.desc}</td>
                 <td>${product.type}</td>
-                <td>
-                    <button class="btn_edit" >Edit</button>
-                    <button class="delete mt-3" onclick="deleteProduct('${product.id}')">Delete</button>
+                <td ">
+                    <button class="btn_edit" >Thêm vào giỏ hàng</button>
                 </td>
             </tr>
         `;
