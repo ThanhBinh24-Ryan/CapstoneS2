@@ -1390,9 +1390,6 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.mx-auto {
-=========
 .m-6{
   margin: 1.5rem;
 }
@@ -1402,9 +1399,6 @@ input:checked + .toggle-bg {
   margin-right: auto;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.mb-1 {
-=========
 .mb-0{
   margin-bottom: 0px;
 }
@@ -1421,7 +1415,6 @@ input:checked + .toggle-bg {
   margin-inline-end: 0.25rem;
 }
 
-<<<<<<<<< Temporary merge branch 1
 .ml-6 {
   margin-left: 1.5rem;
 }
@@ -1450,8 +1443,6 @@ input:checked + .toggle-bg {
   margin-top: 1rem;
 }
 
-.block {
-=========
 .ml-6{
   margin-left: 1.5rem;
 }
@@ -1473,7 +1464,6 @@ input:checked + .toggle-bg {
 }
 
 .block{
->>>>>>>>> Temporary merge branch 2
   display: block;
 }
 
@@ -1622,10 +1612,6 @@ input:checked + .toggle-bg {
 .resize {
   resize: both;
 }
-
-<<<<<<<<< Temporary merge branch 1
-.grid-cols-4 {
-=========
 .columns-2{
   -moz-columns: 2;
        columns: 2;
@@ -1780,9 +1766,7 @@ input:checked + .toggle-bg {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.bg-blue-700 {
-=========
+
 .bg-blue-300{
   --tw-bg-opacity: 1;
   background-color: rgb(164 202 254 / var(--tw-bg-opacity));
@@ -1822,9 +1806,6 @@ input:checked + .toggle-bg {
   background-color: rgb(17 24 39 / 0.5);
 }
 
-<<<<<<<<< Temporary merge branch 1
-.bg-slate-400 {
-=========
 .bg-green-500{
   --tw-bg-opacity: 1;
   background-color: rgb(14 159 110 / var(--tw-bg-opacity));
@@ -1889,9 +1870,6 @@ input:checked + .toggle-bg {
   padding: 1rem;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.px-2 {
-=========
 .p-5{
   padding: 1.25rem;
 }
@@ -1954,9 +1932,6 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.text-center {
-=========
 .text-left{
   text-align: left;
 }
@@ -1970,9 +1945,6 @@ input:checked + .toggle-bg {
   line-height: 2rem;
 }
 
-<<<<<<<<< Temporary merge branch 1
-.text-lg {
-=========
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
