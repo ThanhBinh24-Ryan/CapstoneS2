@@ -206,7 +206,7 @@ const btnCheckout = () => {
     alert("Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi");
     cart = [];
     total = 0; 
-    document.getElementById("totalCart").innerHTML = "Tổng tiền: 0 VND"; 
+    document.getElementById("totalCart").innerHTML = " 0 VND"; 
     renderCart(); 
     addLocalStorage(); 
 };
