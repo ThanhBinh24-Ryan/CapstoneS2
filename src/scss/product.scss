@@ -21,3 +21,21 @@
 .btnDouble{
     justify-content: end;
 }
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 2rem; /* Sử dụng rem để khoảng cách phù hợp với kích thước chữ */
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 90vw; /* Sử dụng đơn vị vw (viewport width) để mục chiếm 90% chiều rộng màn hình */
+    max-width: 600px; /* Đặt giới hạn tối đa cho kích thước */
+    margin-right: 2rem; /* Khoảng cách giữa các mục cũng được thiết lập theo rem */
+}
+
+.carousel img {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của mục carousel */
+    height: auto; /* Giữ tỷ lệ hình ảnh */
+}
